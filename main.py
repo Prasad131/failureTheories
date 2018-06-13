@@ -170,7 +170,10 @@ class GUI:
         else:
             temp = failure.Gerber()
         self.msg = tk.Frame(self.top)
-        msg = 'Life as per calculation is ' + str(temp)
+        if temp > 1e06:
+            msg = 'Design has infinite life.'
+        else:
+            msg = 'Life as per calculation is ' + str(temp)
         tk.Message(self.msg, text=msg).pack()
         self.msg.pack()
 
